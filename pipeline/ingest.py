@@ -16,9 +16,8 @@ def fetch_with_retry(ticker: str, start: str, retries: int = 3) -> pd.DataFrame:
     return pd.DataFrame()  # return empty ถ้าล้มทุก attempt
 
 def get_last_date(filepath: str) -> str:
-    """อ่านไฟล์เก่าเพื่อหาวันสุดท้ายที่มีข้อมูล"""
     try:
         df_existing = pd.read_parquet(filepath)
         return df_existing.index.max().strftime("%Y-%m-%d")
     except FileNotFoundError:
-        return "2024-01-01"  # fallback ถ้ายังไม่มีไฟล์
+        return "2024-01-01"  # ← เปลี่ยนเป็นวันที่ไกลพอ เช่น 2024-01-01
