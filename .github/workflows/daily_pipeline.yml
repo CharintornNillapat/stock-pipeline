@@ -1,0 +1,45 @@
+name: Daily Stock Pipeline
+
+on:
+  schedule:
+    - cron: "0 11 * * 1-5"   # 18:00 เวลาไทย วันจันทร์-ศุกร์
+  workflow_dispatch:          # กดรันมือได้จาก GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        run: python pipeline/run_pipeline.py
+
+      - name: Check if data changed
+        id: check_changes
+        run: |
+          git diff --quiet data/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push new data
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/
+          git commit -m "chore: update data $(date +'%Y-%m-%d')"
+          git push
