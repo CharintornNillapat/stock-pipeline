@@ -8,7 +8,7 @@ st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
 TICKERS = [
     # หุ้นไทย SET
-    "ADVANC.BK",
+    "PTT.BK", "AOT.BK", "ADVANC.BK",
     "CPALL.BK", "SCB.BK", "KBANK.BK",
     # หุ้นต่างประเทศ
     "AAPL", "TSLA", "NVDA",

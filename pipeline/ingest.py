@@ -4,6 +4,8 @@ import time
 
 TICKERS = [
     # หุ้นไทย SET
+    "PTT.BK",
+    "AOT.BK",
     "ADVANC.BK",
     "CPALL.BK",
     "SCB.BK",
