@@ -11,7 +11,7 @@ TICKERS = [
     "PTT.BK", "AOT.BK", "ADVANC.BK",
     "CPALL.BK", "SCB.BK", "KBANK.BK",
     # หุ้นต่างประเทศ
-    "AAPL", "TSLA", "NVDA",
+    "AAPL", "TSLA", "NVDA", "ASML", "TSM"
 ]
 
 # ── Load Data ────────────────────────────────────────

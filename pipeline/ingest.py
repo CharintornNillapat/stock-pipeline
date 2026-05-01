@@ -14,6 +14,8 @@ TICKERS = [
     "AAPL",
     "TSLA",
     "NVDA",
+    "ASML", 
+    "TSM",
 ]
 
 def fetch_with_retry(ticker: str, start: str, retries: int = 3) -> pd.DataFrame:
