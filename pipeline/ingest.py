@@ -4,18 +4,11 @@ import time
 
 TICKERS = [
     # หุ้นไทย SET
-    "PTT.BK",
-    "AOT.BK",
-    "ADVANC.BK",
-    "CPALL.BK",
-    "SCB.BK",
-    "KBANK.BK",
+    "PTT.BK", "AOT.BK", "ADVANC.BK",
+    "CPALL.BK", "SCB.BK", "KBANK.BK",
     # หุ้นต่างประเทศ
-    "AAPL",
-    "TSLA",
-    "NVDA",
-    "ASML", 
-    "TSM",
+    "AAPL", "TSLA", "NVDA",
+    "ASML", "TSM",   # ← เพิ่มบรรทัดนี้
 ]
 
 def fetch_with_retry(ticker: str, start: str, retries: int = 3) -> pd.DataFrame:
