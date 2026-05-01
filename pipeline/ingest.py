@@ -2,7 +2,19 @@ import yfinance as yf
 import pandas as pd
 import time
 
-TICKERS = ["PTT.BK", "AOT.BK", "ADVANC.BK"]
+TICKERS = [
+    # หุ้นไทย SET
+    "PTT.BK",
+    "AOT.BK",
+    "ADVANC.BK",
+    "CPALL.BK",
+    "SCB.BK",
+    "KBANK.BK",
+    # หุ้นต่างประเทศ
+    "AAPL",
+    "TSLA",
+    "NVDA",
+]
 
 def fetch_with_retry(ticker: str, start: str, retries: int = 3) -> pd.DataFrame:
     for attempt in range(retries):

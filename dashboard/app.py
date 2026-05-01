@@ -6,7 +6,13 @@ from plotly.subplots import make_subplots
 # ── Config ──────────────────────────────────────────
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
-TICKERS = ["PTT.BK", "AOT.BK", "ADVANC.BK"]
+TICKERS = [
+    # หุ้นไทย SET
+    "PTT.BK", "AOT.BK", "ADVANC.BK",
+    "CPALL.BK", "SCB.BK", "KBANK.BK",
+    # หุ้นต่างประเทศ
+    "AAPL", "TSLA", "NVDA",
+]
 
 # ── Load Data ────────────────────────────────────────
 @st.cache_data(ttl=3600)
